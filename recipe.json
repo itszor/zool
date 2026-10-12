@@ -1,0 +1,50 @@
+{
+ "name": "zool",
+ "title": "Zool v1.51 (Gremlin Graphics / James Byrne, 1993; 2001 release)",
+ "platform": "acorn-archimedes",
+ "doc": "A recipe: how to turn a user's own copy of the game into a native executable. It holds no game data: the inputs are recognised by content (see $SS/tools/cook.py).",
+ "inputs": {
+  "containers": {},
+  "formats": [
+   "arcfs",
+   "zip"
+  ]
+ },
+ "discs": [
+  {
+   "name": "arc",
+   "title": "Zool v1.51 (16 May 2001): the ArcFS archive 'Zool' holding !Zool",
+   "known_images": [
+    "489a68f3c595ff1c27912d037c26d7f4efabae0e2ed64d96c519f282bf02da72"
+   ],
+   "key_files": {
+    "!Zool/!RunImage": "d8a5cdce9845768bc4c56e6c8b726dc3686975b5f285660d1bc51055bee074e4",
+    "!Zool/!Run": "3a9079b040341374df075153cbfa37754104890520e209c53942fa49a3269ce3",
+    "!Zool/Levels/Level1": "4100399f3e0270acf49504d6fb03624455f8d8516fc659639bb789ff383a68be",
+    "!Zool/Music/ZoolPhob": "3e063cd6197084381e46d7843ecf3cf0edc04a7b488c5fa1beb78d0c9fd9a6e0",
+    "!Zool/Graphics/Chrs": "8f4a55d65d766f59c8c8a9e4ee8397a1c6ab511c85c930dc2d15be3c59460b06",
+    "!Zool/Effects/Jump": "da71078f8005ad28367ccc5987636eae19020d46c662c4b9e791d5487c6f7452"
+   },
+   "game_dirs": [
+    "!Zool"
+   ]
+  }
+ ],
+ "build": [
+  "python3 -I \"$COOK\" extract . INPUTS",
+  "make -C recomp regen",
+  "make -C recomp"
+ ],
+ "output": "recomp/zool",
+ "requires": {
+  "superspider": "~/stuff/superspider, or $SUPERSPIDER (dune build): analyse, gen, tools/cook.py, tools/arcfs.py",
+  "libroger": "~/stuff/libroger, or make ROGER=...",
+  "host": [
+   "python3",
+   "ocaml + dune",
+   "gcc",
+   "SDL3 (pkg-config sdl3)"
+  ]
+ },
+ "run": "cd recomp && ./zool"
+}
