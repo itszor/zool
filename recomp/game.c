@@ -78,6 +78,9 @@ static struct roger_config config = {
     /* a controller: Z X ' / (the manual's keys for the joystick's directions),
      * A fire (Return), B jump (' too), start pause (P) */
     .pad_map = "left=Z,right=X,up=',down=/,a=Return,b=',start=P",
+    /* the controllers as the joystick, if one is connected: Joystick_Read,
+     * when its options choose the joystick */
+    .joystick = ROGER_JOY_ACORN,
     .image = &recomp_image,
     .appdir = APPDIR,
     .dir_prefixes = prefixes,
