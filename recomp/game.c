@@ -75,6 +75,9 @@ static const char *find_image(void)
 
 static struct roger_config config = {
     .title = "Zool (recompiled)",
+    /* a controller: Z X ' / (the manual's keys for the joystick's directions),
+     * A fire (Return), B jump (' too), start pause (P) */
+    .pad_map = "left=Z,right=X,up=',down=/,a=Return,b=',start=P",
     .image = &recomp_image,
     .appdir = APPDIR,
     .dir_prefixes = prefixes,
